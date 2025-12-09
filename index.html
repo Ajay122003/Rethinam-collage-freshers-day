@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Fresher's Day </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Google Font (optional) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        min-height: 100vh;
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        background: radial-gradient(circle at top, #ff9a9e, #fad0c4);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .party-bg {
+        background: radial-gradient(circle at top, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1);
+        animation: bgPulse 6s infinite alternate;
+      }
+
+      @keyframes bgPulse {
+        0% {
+          filter: brightness(0.95);
+        }
+        100% {
+          filter: brightness(1.1);
+        }
+      }
+
+      .intro-card {
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        padding: 2.5rem 2rem;
+        text-align: center;
+        max-width: 450px;
+        width: 100%;
+      }
+
+      .glow-text {
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
+      }
+
+      .sparkle {
+        animation: sparkle 1.2s infinite alternate;
+      }
+
+      @keyframes sparkle {
+        0% {
+          transform: scale(1);
+        }
+        100% {
+          transform: scale(1.05);
+        }
+      }
+
+      /* Main content styling */
+      #mainContent {
+        width: 100%;
+        max-width: 1000px;
+        margin: 2rem auto;
+      }
+
+     .poster-img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  object-fit: contain;
+}
+
+
+      .qr-card {
+        background: rgba(255, 255, 255, 0.92);
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      .qr-img {
+        width: 200px;
+        height: 200px;
+        object-fit: contain;
+        cursor: pointer;
+        transition: transform 0.25s;
+      }
+
+      .qr-img:hover {
+        transform: scale(1.05);
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- INTRO SECTION -->
+    <section id="introSection" class="container">
+      <div class="intro-card mx-auto">
+        <div class="mb-2">
+          <span class="badge text-bg-danger">Fresher's Day 2025</span>
+        </div>
+        <h1 class="glow-text mb-3">Welcome Freshers 🎉</h1>
+        <!-- <p class="text-muted mb-4">
+          Namma <strong>Fresher's Day</strong> ku oru small surprise ready-ah
+          irukku. First link click pannu!
+        </p> -->
+
+        <a href="#" id="startLink" class="btn btn-primary btn-lg sparkle">
+          Click here &nbsp;✨
+        </a>
+
+        <!-- <p class="mt-3 small text-muted">
+          (Link click panna <strong>“Are you ready?”</strong> surprise varum 😉)
+        </p> -->
+      </div>
+    </section>
+
+    <!-- MAIN CONTENT (Hidden first) -->
+    <section id="mainContent" class="container d-none">
+      <div class="text-center text-white mb-4">
+        <!-- <h2 class="fw-bold">🎊 Fresher's Day Special Surprise 🎊</h2>
+        <p class="mb-0">
+          Poster pathu, QR scan / click pannunga… inside oru special video! 💖
+        </p> -->
+      </div>
+
+      <div class="row g-4 align-items-center">
+        <!-- Poster -->
+        <div class="col-md-7">
+          <!-- Replace src with your poster image URL -->
+          <img
+            src="image/poster.jpg"
+            alt="Fresher's Day Poster"
+            class="poster-img img-fluid"
+          />
+        </div>
+
+        <!-- QR + Info -->
+        <div class="col-md-5">
+          <div class="qr-card p-4 text-center">
+            <h4 class="mb-2"> Click the QR</h4>
+            <!-- <p class="text-muted mb-3">
+              Idhu than unga <strong>surprise video</strong> entry pass 😎
+            </p> -->
+
+            <!-- QR image inside button (for click) -->
+            <button
+              type="button"
+              class="btn border-0 bg-transparent p-0"
+              data-bs-toggle="modal"
+              data-bs-target="#videoModal"
+            >
+              <!-- Replace src with your QR image -->
+              <img
+                src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=Fresher%20Day%20Surprise"
+                alt="QR Code"
+                class="qr-img"
+              />
+            </button>
+
+            <!-- <p class="small text-muted mt-3 mb-0">
+              Mobile la irundha <strong>zoom pannitu</strong> scan pannalam.  
+              Laptop la irundha just <strong>QR click</strong> pannunga, video open aagum! 🎬
+            </p> -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- "ARE YOU READY" MODAL -->
+    <div
+      class="modal fade"
+      id="readyModal"
+      tabindex="-1"
+      aria-labelledby="readyModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0">
+          <div class="modal-header border-0">
+            <h5 class="modal-title fw-bold" id="readyModalLabel">
+              Are You Ready? 🤩
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <!-- <p class="mb-2">
+              Inga irukku unga <strong>Fresher's Day Surprise</strong> website!
+            </p>
+            <p class="mb-0">
+              <strong>OK</strong> press panna <br />
+              <em>poster + QR + special video</em> laam open aagum! 🎉
+            </p> -->
+          </div>
+          <div class="modal-footer border-0">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Wait...
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              id="readyYesBtn"
+            >
+              Yes, I'm Ready! 🚀
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VIDEO MODAL (QR click panna open aagum) -->
+    <div
+      class="modal fade"
+      id="videoModal"
+      tabindex="-1"
+      aria-labelledby="videoModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content border-0">
+          <div class="modal-header border-0">
+            <h5 class="modal-title" id="videoModalLabel">
+              Fresher's Day Special Video 🎥
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body p-0">
+            <div class="ratio ratio-16x9">
+              <!-- Replace src with your YouTube / video link -->
+              <iframe
+                id="videoFrame"
+                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                title="Fresher's Day Video"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle (with Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      // Intro link -> open "Are you ready?" modal
+      const startLink = document.getElementById("startLink");
+      const readyModalEl = document.getElementById("readyModal");
+      const readyModal = new bootstrap.Modal(readyModalEl);
+
+      startLink.addEventListener("click", function (e) {
+        e.preventDefault();
+        readyModal.show();
+      });
+
+      // "Yes I'm Ready" button -> show main content
+      const readyYesBtn = document.getElementById("readyYesBtn");
+      const introSection = document.getElementById("introSection");
+      const mainContent = document.getElementById("mainContent");
+
+      readyYesBtn.addEventListener("click", function () {
+        // Hide intro, show main
+        introSection.classList.add("d-none");
+        mainContent.classList.remove("d-none");
+
+        // Add party background animation
+        document.body.classList.add("party-bg");
+
+        readyModal.hide();
+
+        // Smooth scroll to main section (optional)
+        mainContent.scrollIntoView({ behavior: "smooth" });
+      });
+
+      // Handle video play/stop when QR video modal opens/closes
+      const videoModal = document.getElementById("videoModal");
+      const videoFrame = document.getElementById("videoFrame");
+      const originalSrc = videoFrame.getAttribute("src");
+
+      // When modal hidden -> stop video (by clearing src)
+      videoModal.addEventListener("hidden.bs.modal", function () {
+        videoFrame.setAttribute("src", "");
+      });
+
+      // When modal show -> restore video src
+      videoModal.addEventListener("show.bs.modal", function () {
+        videoFrame.setAttribute("src", originalSrc);
+      });
+    </script>
+  </body>
+</html>
